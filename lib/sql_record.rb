@@ -25,6 +25,11 @@ module SQLRecord
       define_method attribute_name do
         klass.columns_hash[source_attribute].type_cast(@row[attribute_name.to_s])
       end
+
+      select_column = "#{klass.table_name}.#{source_attribute}"
+      select_column += " as #{attribute_name}" if opts[:from]
+
+      (@sql_select_columns ||= []) << select_column
     end
 
     def query &deferred
@@ -43,8 +48,16 @@ module SQLRecord
 
     def execute_query params={}
       # does this log (hope so)
-      sql = ActiveRecord::Base.send(:sanitize_sql_array, @query_proc.call(params))
+      sql = ActiveRecord::Base.send(:sanitize_sql_array, get_query_array(params))
       ActiveRecord::Base.connection.execute(sql)
+    end
+
+    def get_query_array(params)
+      if @query_proc.arity == 2
+        @query_proc.call(params, @sql_select_columns.join(", "))
+      else
+        @query_proc.call(params)
+      end
     end
 
   end
