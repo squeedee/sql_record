@@ -8,9 +8,7 @@ Well that's what SQLRecord does.
 
 == Example
 
-    class UserWithAccount
-      include SQLRecord
-
+    class UserWithAccount << SQLRecord::Base
 
       with_opts :class => User do
         column :id
