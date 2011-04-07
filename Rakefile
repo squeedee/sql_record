@@ -16,9 +16,14 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/squeedee/sql-record"
   gem.license = "MIT"
   gem.summary = %Q{SQL direct mapping to ActiveRecord}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{Do you use ActiveRecord::Connection.execute for speed sometimes?
+
+Does it bother you that the results are not mapped to your schema and type-cast as ActiveRecord would?
+
+Well that's what SQLRecord does.
+}
   gem.email = "squeedee@gmail.com"
-  gem.authors = ["vWorkApp"]
+  gem.authors = ["Rasheed Abdul-Aziz"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'

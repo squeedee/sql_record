@@ -1,6 +1,40 @@
-= sql-record
+= SQLRecord
 
-Description goes here.
+Do you use ActiveRecord::Connection.execute for speed sometimes?
+
+Does it bother you that the results are not mapped to your schema and type-cast as ActiveRecord would?
+
+Well that's what SQLRecord does.
+
+== Example
+
+    def UserWithDefaultRole
+      include Visfleet::SQLRecord
+
+      with_class User do
+          column :id                               # UserWithDefaultRole#id -> User#id
+          column :user_name, :from => :name        # UserWithDefaultRole#user_name -> User#name
+          column :created_at                       # UserWithDefaultRole#created_at -> User#created_at
+      end
+
+      with_class Role do
+          column :default_role, :from => :name     # UserWithDefaultRole#default_role -> Role#name
+      end
+
+      query do |params|
+        [
+          "SELECT users.id, users.name as user_name, users.created_at, roles.name as default_role " +
+          "FROM users INNER JOIN roles " +
+          "ON users.default_role_id = role.id " +
+          "WHERE users.id = ? AND users.created_at > ?",
+          params[:id],
+          params[:created_after]
+        ]
+      end
+
+    end
+
+
 
 == Contributing to sql-record
  
