@@ -8,32 +8,33 @@ Well that's what SQLRecord does.
 
 == Example
 
-    def UserWithDefaultRole
-      include Visfleet::SQLRecord
+    class UserWithAccount
+      include SQLRecord
+
 
       with_class User do
-          column :id                               # UserWithDefaultRole#id -> User#id
-          column :user_name, :from => :name        # UserWithDefaultRole#user_name -> User#name
-          column :created_at                       # UserWithDefaultRole#created_at -> User#created_at
+        column :id
+        column :user_email, :from => :email
+        column :created_at
       end
 
-      with_class Role do
-          column :default_role, :from => :name     # UserWithDefaultRole#default_role -> Role#name
+      with_class Account do
+        column :account_name, :from => :name
       end
 
-      query do |params|
+      column :account_id, :from => :id, :class => Account
+
+      query do |params, default_columns|
         [
-          "SELECT users.id, users.name as user_name, users.created_at, roles.name as default_role " +
-          "FROM users INNER JOIN roles " +
-          "ON users.default_role_id = role.id " +
-          "WHERE users.id = ? AND users.created_at > ?",
-          params[:id],
-          params[:created_after]
+          "SELECT #{default_columns} " +
+          "FROM users INNER JOIN accounts " +
+          "ON users.account_id = accounts.id " +
+          "WHERE users.id = ?",
+          params[:id]
         ]
       end
 
     end
-
 
 
 == Contributing to sql-record
