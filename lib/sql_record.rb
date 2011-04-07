@@ -1,24 +1,57 @@
+# @author Rasheed Abdul-Aziz
 module SQLRecord
 
 	def initialize(row)
 		@row = row
 	end
 
-	def self.included(base)
+	def self.included(base) # :nodoc:
 		base.extend ClassMethods
 	end
 
 	module ClassMethods
 
-		def with_class klass, &block
-			@current_class = klass
+		# with_opts blocks specify default options for calls to {#column}
+		#
+		# @param opts [Hash] anything that {#column} supports. Currently this should only be :class
+		#
+		# @example Longhand (not using with_opts)
+		#   column :name, :class => Account
+		#   column :id, :class => Account
+		#   ...snip...
+	  #   column :created_at, :class => Account
+		#
+		# @example Shorthand (using with_opts)
+		#   with_opts :class => Account
+		#     column :name
+		#     column :id
+		#     ...snip...
+	  #     column :created_at
+		#   end
+
+		def with_opts opts, &block
+			@default_opts = opts
 			block.arity == 2 ? yield(self) : self.instance_eval(&block)
-			@current_class = nil
+			@default_opts = nil
 		end
 
+
+		# Specifies the mapping from an ActiveRecord#column_definition to an SQLRecord instance attribute.
+		# @param [Symbol] attribute_name the attribute you are defining for this model
+		# @option opts [Class] :class the active record this attribute will use to type_cast from
+		# @option opts [Symbol,String] :from if it differs from the attribute_name, the schema column of the active record
+		#   to use for type_cast
+		#
+		# @example Simple mapping
+		#   # Account#name column maps to the "name" attribute
+		#   column :name, :class => Account
+		#
+		# @example Mapping a different column name
+		#   # Account#name column maps to the "account name" attribute
+		#   column :account_name, :class => Account, :from => :name
 		def column attribute_name, opts = {}
-			klass = opts[:class] || @current_class || nil
-			raise ArgumentError, 'Either opts[:class] is not defined or you have not specified a with_class block' if klass.nil?
+			klass = opts[:class] || @default_opts[:class] || nil
+			raise ArgumentError, 'You must specify a :clas soption, either explicitly, or using with_opts' if klass.nil?
 
 			source_attribute = (opts[:from] || attribute_name).to_s
 

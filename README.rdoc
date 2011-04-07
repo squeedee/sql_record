@@ -12,13 +12,13 @@ Well that's what SQLRecord does.
       include SQLRecord
 
 
-      with_class User do
+      with_opts :class => User do
         column :id
         column :user_email, :from => :email
         column :created_at
       end
 
-      with_class Account do
+      with_opts :class => Account do
         column :account_name, :from => :name
       end
 

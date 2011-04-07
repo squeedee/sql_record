@@ -9,6 +9,7 @@ GEM
       rake
     rake (0.8.7)
     rcov (0.9.9)
+    rdoc (3.5.3)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
@@ -26,5 +27,6 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   jeweler (~> 1.5.2)
   rcov
+  rdoc
   rspec (~> 2.3.0)
   yard (~> 0.6.0)
