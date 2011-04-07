@@ -13,7 +13,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "sql_record"
-  gem.homepage = "http://github.com/squeedee/sql_record"
+  gem.homepage = "http://github.com/visfleet/sql_record"
   gem.license = "MIT"
   gem.summary = %Q{SQL direct mapping to ActiveRecord}
   gem.description = %Q{Do you use ActiveRecord::Connection.execute for speed sometimes?
