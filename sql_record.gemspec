@@ -36,7 +36,7 @@ Well that's what SQLRecord does.
     "spec/sql_record_spec.rb",
     "sql_record.gemspec"
   ]
-  s.homepage = %q{http://github.com/squeedee/sql-record}
+  s.homepage = %q{http://github.com/squeedee/sql_record}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
