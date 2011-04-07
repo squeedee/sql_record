@@ -36,6 +36,13 @@ Well that's what SQLRecord does.
 
     end
 
+== Usage
+
+    $ script.console
+    > a = UserWithAccount.find(:id => 1)
+    > a[0].created_at.class
+    => Time
+
 
 == Contributing to sql-record
  

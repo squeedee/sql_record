@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sql_record}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rasheed Abdul-Aziz"]
@@ -33,7 +33,8 @@ Well that's what SQLRecord does.
     "init.rb",
     "lib/sql_record.rb",
     "spec/spec_helper.rb",
-    "spec/sql_record_spec.rb"
+    "spec/sql_record_spec.rb",
+    "sql_record.gemspec"
   ]
   s.homepage = %q{http://github.com/squeedee/sql-record}
   s.licenses = ["MIT"]
