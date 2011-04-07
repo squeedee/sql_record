@@ -12,7 +12,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "sql-record"
+  gem.name = "sqlrecord"
   gem.homepage = "http://github.com/squeedee/sql-record"
   gem.license = "MIT"
   gem.summary = %Q{SQL direct mapping to ActiveRecord}
@@ -22,7 +22,7 @@ Does it bother you that the results are not mapped to your schema and type-cast 
 
 Well that's what SQLRecord does.
 }
-  gem.email = "squeedee@gmail.com"
+  gem.email = "rasheed@visfleet.com"
   gem.authors = ["Rasheed Abdul-Aziz"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
