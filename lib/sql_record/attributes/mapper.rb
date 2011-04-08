@@ -3,6 +3,8 @@ module SQLRecord
   module Attributes
     module Mapper
 
+      attr_reader :sql_select_columns
+
       # with_opts blocks specify default options for calls to {#column}
       #
       # @param opts [Hash] anything that {#column} supports. Currently this should only be :class
@@ -55,6 +57,10 @@ module SQLRecord
         select_column = "#{klass.table_name}.#{source_attribute}"
         select_column += " as #{attribute_name}" if opts[:from]
         (@sql_select_columns ||= []) << select_column
+      end
+
+      def sql_select_helper
+         @sql_select_columns.join(', ')
       end
 
     end
