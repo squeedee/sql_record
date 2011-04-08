@@ -1,5 +1,8 @@
 module SQLRecord
   module SanitizedQuery
+    # Executes the {#query} proc on your database, building SQLRecords with the results.
+    # @param params [Hash] a hash of parameters that are yielded to the {#query} proc
+    # @return [Array] {SQLRecord::Base}s with their raw_attributes set to the row results.
     def find params={}
       rows = execute_query params
 
@@ -21,11 +24,7 @@ module SQLRecord
     end
 
     def get_query_array(params)
-      if @query_proc.arity == 2
-        @query_proc.call(params, @sql_select_columns.join(", "))
-      else
         @query_proc.call(params)
-      end
     end
 
   end

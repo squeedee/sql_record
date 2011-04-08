@@ -57,14 +57,6 @@ module SQLRecord
         (@sql_select_columns ||= []) << select_column
       end
 
-      def find params={}
-        rows = execute_query params
-
-        rows.map do |row|
-          new row
-        end
-      end
-
     end
   end
 end

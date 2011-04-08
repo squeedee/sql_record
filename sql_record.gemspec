@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "init.rb",
+    "lib/sql_record.rb",
     "lib/sql_record/attributes/mapper.rb",
     "lib/sql_record/base.rb",
     "lib/sql_record/sanitized_query.rb",
