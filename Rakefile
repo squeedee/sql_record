@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/visfleet/sql_record"
   gem.license = "MIT"
   gem.summary = %Q{SQL direct mapping to ActiveRecord}
-#  gem.description = %Q{Do you use ActiveRecord::Connection.execute for speed sometimes? Does it bother you that the results are not mapped to your schema and type-cast as ActiveRecord would? Well that's what SQLRecord does.}
+  gem.description = %Q{Do you use ActiveRecord::Connection.execute for speed sometimes? Does it bother you that the results are not mapped to your schema and type-cast as ActiveRecord would? Well that's what SQLRecord does.}
   gem.email = "rasheed@visfleet.com"
   gem.authors = ["Rasheed Abdul-Aziz"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
