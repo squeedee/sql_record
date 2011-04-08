@@ -9,7 +9,7 @@ module SQLRecord
     extend SQLRecord::Attributes::Mapper
 
     # the raw attributes returned from a db query
-    attr_accessor :raw_attributes
+    attr_reader :raw_attributes
 
     def initialize raw_attributes = {}
       @raw_attributes = raw_attributes
