@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
     "lib/sql_record/base.rb",
     "lib/sql_record/sanitized_query.rb",
     "spec/spec_helper.rb",
+    "spec/sql_record/base_spec.rb",
+    "spec/sql_record/sanitized_query_spec.rb",
     "spec/sql_record_spec.rb",
     "sql_record.gemspec"
   ]
@@ -41,6 +43,8 @@ Gem::Specification.new do |s|
   s.summary = %q{SQL direct mapping to ActiveRecord}
   s.test_files = [
     "spec/spec_helper.rb",
+    "spec/sql_record/base_spec.rb",
+    "spec/sql_record/sanitized_query_spec.rb",
     "spec/sql_record_spec.rb"
   ]
 
