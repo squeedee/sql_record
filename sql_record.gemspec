@@ -5,11 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sql_record}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rasheed Abdul-Aziz"]
   s.date = %q{2011-04-08}
+  s.description = %q{Do you use ActiveRecord::Connection.execute for speed sometimes? Does it bother you that the results are not mapped to your schema and type-cast as ActiveRecord would? Well that's what SQLRecord does.}
   s.email = %q{rasheed@visfleet.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
