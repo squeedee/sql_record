@@ -42,6 +42,10 @@ Well that's what SQLRecord does.
     => Time
 
 
+== Contributers
+
+Thanks to {Loren Segal}[http://gnuu.org] for the big code review, and making me aware that sound OO principles are not dead in ruby.
+
 == Contributing to sql-record
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
