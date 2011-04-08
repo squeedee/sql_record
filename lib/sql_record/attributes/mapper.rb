@@ -59,10 +59,6 @@ module SQLRecord
         (@sql_select_columns ||= []) << select_column
       end
 
-      def sql_select_helper
-         @sql_select_columns.join(', ')
-      end
-
     end
   end
 end

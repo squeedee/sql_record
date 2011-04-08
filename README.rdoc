@@ -22,9 +22,9 @@ Well that's what SQLRecord does.
 
       column :account_id, :from => :id, :class => Account
 
-      query do |params, default_columns|
+      query do |params|
         [
-          "SELECT #{default_columns} " +
+          "SELECT #{sql_select_columns.join(', ')} " +
           "FROM users INNER JOIN accounts " +
           "ON users.account_id = accounts.id " +
           "WHERE users.id = ?",
