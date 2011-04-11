@@ -29,6 +29,12 @@ module SQLRecord
         @default_opts = nil
       end
 
+      # Sugar for with
+      def with_class klass, opts = {}, &block
+        opts[:class => klass]
+        with_opts opts, &block
+      end
+
       # Specifies the mapping from an ActiveRecord#column_definition to an SQLRecord instance attribute.
       # @param [Symbol] attribute_name the attribute you are defining for this model
       # @option opts [Class] :class the active record this attribute will use to type_cast from
