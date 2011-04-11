@@ -34,7 +34,7 @@ module SQLRecord
     #   ["ORDER BY ? ASC", "id"] => "ORDER BY 'id' ASC"  << not legitimate SQL
     def execute_query params={}
       sql = get_query(params)
-      sql = ActiveRecord::Base.send(:sanitize_sql_array, sql) if sql.is_a(Array)
+      sql = ActiveRecord::Base.send(:sanitize_sql_array, sql) if sql.is_a?(Array)
       ActiveRecord::Base.connection.execute(sql)
     end
 

@@ -31,7 +31,7 @@ module SQLRecord
 
       # Sugar for with
       def with_class klass, opts = {}, &block
-        opts[:class => klass]
+        opts[:class] = klass
         with_opts opts, &block
       end
 
